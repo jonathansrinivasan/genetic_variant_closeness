@@ -1,0 +1,116 @@
+KCNH2 = hERG
+
+Updated.h2dist.Rdata = h2dist
+all.lqt2.data.trunc.Rdata = herg.combined.data
+
+All_data_funcdist_new = clin.d
+All.Max.Data.New.Rdata = clin.d
+
+all.lqt2.data.trunc.Rdata = clinical
+penetrance_lqt2 = column
+
+
+Use only where total_carriers is more than zero
+
+train on data with penetrance values
+best leverage proximity or closeness 
+
+
+RMSF - root mean squared flunctuation (how much does the residue move on average)
+'lqt2_dist_sequence'
+'lqt2_dist_weight_sequence'
+'lqt2_dist_observed'
+'lqt2_dist_weight_observed'
+'lqt2_dist_max'
+'lqt2_dist_weight_max'
+'lqt2_dist_mean'
+'lqt2_dist_weight_mean'
+'lqt2_dist_obs_max'
+'lqt2_dist_weight_obs_max'
+'lqt2_dist_obs_mean'
+'lqt2_dist_weight_obs_mean'
+'lqt2_dist_obs_seq'
+'lqt2_dist_weight_obs_seq'
+
+
+func_dist_seq.R - weighting function (sigmoid)
+
+
+dont worry about gnomAD, gnomAD_seq
+
+
+revel_score
+
+
+ht_tailPeak
+hm_tailPeak
+
+
+'lqt2_dist',
+'lqt2_dist_weight'
+
+
+maybe change target to: 'lqt2_penetranceBayesian_initial' (closer to the mean value),'lqt2_penetranceBayesian' 
+everything without 'sequence' needs 'structure'
+
+Which missing columns have the most missing values
+Don't use columns that have weight
+
+penetrance = (number of ppl with the variant and also have phenotype) / (total number of ppl with the variant)
+
+lqt2 + unaff = total_carriers
+
+use lqt2_dict_obs_seq
+
+
+
+
+For Hist regressor:
+
+Seems Good:
+RMSF
+lqt2_dist_max
+revel_score
+
+Seems not so good:
+aasimilaritymat
+
+
+
+For xgboost:
+
+Seems Good:
+
+
+Seems not so good:
+lqt2_dist_obs_max
+
+
+Look into:
+Naive Bayes: A classification algorithm that is based on Bayes' theorem. It assumes that the 
+presence of a particular feature in a class is unrelated to the presence of any other feature.
+
+
+between 2 residues = 4 monomers 
+
+there are 4 residues for each, so that is why there is max and mean
+revel score = insilico predictor 
+
+change NAs in RMSF to the max value in the column
+ 
+
+
+
+
+Remove NAs from these columns and try running em:
+
+lqt2_dist_observed                 375
+lqt2_dist_weight_observed          375
+lqt2_dist_obs_max                  375
+lqt2_dist_weight_obs_max           375
+lqt2_dist_obs_mean                 375
+lqt2_dist_weight_obs_mean          375
+lqt2_dist_obs_seq                  375
+lqt2_dist_weight_obs_seq           375
+
+

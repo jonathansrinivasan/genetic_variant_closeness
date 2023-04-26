@@ -1,0 +1,93 @@
+---
+title: Predict LQTS Diagnosis Probability Using Structure, Function, and *In Silico*
+  Features
+author: "Laura Bertolami, Shoshana Kelner, and Brett Kroncke"
+date: "Summer 2021"
+output:
+  html_document:
+    theme: flatly
+    toc: yes
+    toc_depth: 4
+    toc_float: no
+    smooth_scroll: yes
+    code_folding: hide
+    highlight: zenburn
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+  word_document:
+    toc: yes
+    toc_depth: '4'
+editor_options:
+  chunk_output_type: console
+---
+
+```{r preamble2,include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library("DBI")
+library("RSQLite")
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(caret)
+library(plotrix)
+library(glmnet)
+library(meta)
+library(reshape2)
+library(psych)
+require(Hmisc)
+library(tableone)
+library(rms)
+library(boot)
+library(leaps)
+library(car)
+library(reticulate)
+library(rootSolve)
+library(pROC)
+library(wCorr) 
+library(MALDIquant)
+library(tidyverse)      # data manipulation and visualization
+library(lubridate)      # easily work with dates and times
+library(fpp2)           # working with time series data
+library(zoo)            # working with time series data
+library(latex2exp)
+library(forestplot)
+library(ggplot2)
+library(readxl)
+library(PRROC)
+library(rmarkdown)
+library(lattice)
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+source('src/func_dist_seq.R')
+#seq1 is the same as seq just needed to rename it for trial and error with merging 
+
+#load("data/Covariates/KCNH2_clinical_data.RData")
+# Include distances between residue centroids from the structure of KV11.1 (KCNH2 protein product) PDB-ID: 5VA1
+h2dist_1<-read.csv(file = "data/Covariates/herg-correlation-analysis.csv", header = FALSE)
+#load("Updated.h2dist.Rdata")
+
+#load("All.Data.Funcdist.New.Rdata") 
+#load("all.lqt2.data.trunc.Rdata") #added bc herg.combined.data doesnt exist until its loaded -L
+#herg.combined.data<-herg.combined.data[!duplicated(herg.combined.data$var),]
+
+
+#herg_s2 <- read_excel("data/Covariates/structure_files/herg-S2.xlsx")     
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#h2dist_1<-read.csv(file = "data/Covariates/herg-correlation-analysis.csv", header = FALSE)
+```
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+load("data/Covariates/KCNH2_clinical_data.Rdata")
+write.csv(h2dist, file = "updated_h2dist.csv")
+```
+
+
