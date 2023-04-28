@@ -13,8 +13,8 @@ Notebooks that start with 0: EDA
 Notebooks that start with 1: Linear Regression                            
 Notebooks that start with 2: Random Forest                                    
 Notebooks that start with 3: XGBoost                                 
-
-Other important files:            
-csv_data, r_data: Dataset                                                 
-R script that creates the features
+                               
+Other important files:                              
+csv_data, rdata_data: clinical dataset                                                               
+func_dist_seq.R: R script that creates the features                   
 
