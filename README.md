@@ -9,5 +9,12 @@ Intuitively, structural information informs adjudication of variants, especially
 
 # Table of Contents
 
-Notebooks that start with 0: EDA
-Notebooks that start with 1: Linear Regression
+Notebooks that start with 0: EDA                              
+Notebooks that start with 1: Linear Regression                            
+Notebooks that start with 2: Random Forest                                    
+Notebooks that start with 3: XGBoost                                 
+
+Other important files:            
+csv_data, r_data: Dataset                                                 
+R script that creates the features
+
